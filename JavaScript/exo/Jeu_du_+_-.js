@@ -22,6 +22,7 @@ function game() {
         } else {
             console.log('Bravo!')
             console.log(`Vous avez trouvé le nombre en: ${tryNumber} coup\(s)`)
+            console.lgo("test branch");
         }
 
     } else {
