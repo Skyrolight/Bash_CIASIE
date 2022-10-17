@@ -22,7 +22,7 @@ function game() {
         } else {
             console.log('Bravo!')
             console.log(`Vous avez trouvé le nombre en: ${tryNumber} coup\(s)`)
-            console.log('exercice 2')
+            let userName = prompt("Entrez votre pseudo :");
         }
 
     } else {
