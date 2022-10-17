@@ -1,4 +1,4 @@
-const randomNumber = getRandomNumber();
+const randomNumber = 12
 let tryNumber = 0;
 game()
 
