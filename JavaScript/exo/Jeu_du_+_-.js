@@ -1,5 +1,6 @@
 const randomNumber = 12;
 let tryNumber = 0;
+let userName = "";
 game()
 
 function getRandomNumber() {
@@ -22,7 +23,7 @@ function game() {
         } else {
             console.log('Bravo!')
             console.log(`Vous avez trouvé le nombre en: ${tryNumber} coup\(s)`)
-            let userName = prompt("Entrez votre pseudo :");
+            userName = prompt("Entrez votre pseudo :");
         }
 
     } else {

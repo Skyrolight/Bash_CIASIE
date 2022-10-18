@@ -1,0 +1,17 @@
+{
+    "highscore": 10,
+    "data":[
+      {
+        "name":"test", 
+        "score":25
+      },
+      {
+        "name":"Ankit", 
+        "age":23
+      },
+      {
+        "name":"Nehal", 
+        "age":30
+      }
+    ]
+  }
