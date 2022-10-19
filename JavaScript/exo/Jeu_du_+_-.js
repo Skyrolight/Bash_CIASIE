@@ -33,7 +33,6 @@ for( let i = 0; i < localStorage.length; i++){
     tablebody.innerHTML += `<tr><td>${name}</td> <td>${localStorage[name]}</td></tr>`
 }
 
-console.log(Object.keys(localStorage).sort());
 
 let divGetName = document.getElementById("userDiv");
 function show() {
@@ -42,4 +41,22 @@ function show() {
 
 function hide() {
     divGetName.style.display = 'none';   
+}
+
+//function
+
+function resetScores () {
+    localStorage.clear();
+}
+
+function scoreBy(name) {
+    console.log(localStorage.getItem(name));
+}
+
+function scores() {
+    for( let i = 0; i < localStorage.length; i++){
+        let name = localStorage.key(i)
+        let score = localStorage[name]
+        console.log(`${name} : ${score} tentatives`)
+    }
 }
