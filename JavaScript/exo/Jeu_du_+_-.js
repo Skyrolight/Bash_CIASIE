@@ -33,11 +33,6 @@ for( let i = 0; i < localStorage.length; i++){
     tablebody.innerHTML += `<tr><td>${name}</td> <td>${localStorage[name]}</td></tr>`
 }
 
-for( let i = 0; i < Object.keys(localStorage).length; i++){
-    let name = localStorage.key(i)
-    tablebody.innerHTML += `<tr><td>${name}</td> <td>${localStorage[name]}</td></tr>`
-}
-
 console.log(Object.keys(localStorage).sort());
 
 let divGetName = document.getElementById("userDiv");
