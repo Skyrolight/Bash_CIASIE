@@ -1,9 +1,22 @@
-let randomNumber = 12 //Math.floor(Math.random() * (99 - 1 + 1) + 1)
+let randomNumber = Math.floor(Math.random() * (99 - 1 + 1) + 1)
 let response = document.getElementById("response");
 let tryNumber = 0;
 const TRYMAX = 5;
 const HIGHSCORE_MAX = 5;
 
+
+function setDifficulty() {
+    let difficulty = document.getElementById("userDifficulty").value;
+    if (difficulty == "Facile") {
+        randomNumber = Math.floor(Math.random() * (10 - 1 + 1) + 1)
+    } else if(difficulty == "Moyen") {
+        randomNumber = Math.floor(Math.random() * (25 - 1 + 1) + 1)
+    } else if (difficulty == 'Difficile') {
+        randomNumber = Math.floor(Math.random() * (99 - 1 + 1) + 1)
+    } else {
+        randomNumber = Math.floor(Math.random() * (99 - 1 + 1) + 1)
+    }
+}
 
 function game() {
     let userInput = document.getElementById("userNumber").value;
