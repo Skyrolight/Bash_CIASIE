@@ -1,3 +1,23 @@
+function resetScores () {
+    localStorage.clear();
+}
+
+function scoreBy(id) {
+    let key = `userName${id}` 
+    console.log(localStorage.getItem(key));
+}
+
+function run() {
+    initGame()
+}
+
+function scores() {
+    let key = (Object.keys(localStorage).length) - 1;
+    for (let i = 0; i < key; i++) {
+        console.log(localStorage.getItem(`userName${i}`));
+    }
+}
+
 function getRandomNumber() {
     return Math.floor(Math.random() * (99 - 1 + 1) + 1)
 }
