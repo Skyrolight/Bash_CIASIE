@@ -4,7 +4,6 @@ let tryNumber = 0;
 
 function game() {
     let userInput = document.getElementById("userNumber").value;
-
     if (!(userInput > 99 || userInput < 1)) {
         if (randomNumber < userInput) {
             response.innerHTML = "le nombre a trouver est plus petit"
@@ -14,8 +13,35 @@ function game() {
             tryNumber++
         } else {
             response.innerHTML = `Félicitations, vous avez trouvé le nombre mystère en ${tryNumber} tentatives !`
+            show()
         }
     } else {
         response.innerHTML = "Veuillez saisir un nombre entre 1 et 99"
     }
+}
+
+function setHighscore() {
+    let userName = document.getElementById("userName").value;
+    localStorage.setItem(userName, tryNumber);
+}
+
+let tablebody = document.getElementById("tablebody")
+for( let i = 0; i < localStorage.length; i++){
+    let name = localStorage.key(i)
+    tablebody.innerHTML += `<tr><td>${name}</td> <td>${localStorage.name}</td></tr>`
+}
+
+
+
+
+
+
+
+let divGetName = document.getElementById("userDiv");
+function show() {
+    divGetName.style.display = 'block';   
+}
+
+function hide() {
+    divGetName.style.display = 'none';   
 }

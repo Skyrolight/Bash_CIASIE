@@ -6,12 +6,35 @@
 </head>
 <body>
     <div class="content">
+
         <h1>Jeu du + et du -</h1>
+
         <label for="nombre">Veuillez entrer votre nombre:</label>
         <input type="text" name="nombre" id="userNumber" size="10">
+
         <button onclick="game()"type="button">Entrer</button>
+
         <p id="response"></p>
+
+        <div id="userDiv" style="display:none">
+            <p><label for="user">Veuillez saisir votre nom:</label></p>
+            <input type="text" name="user" id="userName">
+            <button onclick="setHighscore()" type="button">Entrer</button>
+        </div>
     </div>
+    <div class="highscore">
+        <table>
+            <thead>
+                <tr >
+                    <td >Nom</td>
+                    <td>Tentatives</td>
+                </tr>
+            </thead>
+            <tbody id="tablebody">
+            </tbody>
+        </table>
+    </div>
+    
 
     <script src="./Jeu_du_+_-.js"></script> 
 </body>
