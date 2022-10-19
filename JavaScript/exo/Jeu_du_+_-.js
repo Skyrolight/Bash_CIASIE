@@ -4,25 +4,27 @@ let tryNumber = 0;
 const TRYMAX = 5;
 const HIGHSCORE_MAX = 5;
 
+function resetScores () {
+    localStorage.clear();
+}
 
-function game() {
-    let userInput = document.getElementById("userNumber").value;
-    if(tryNumber < TRYMAX) {
-        if (!(userInput > 99 || userInput < 1)) {
-            if (randomNumber < userInput) {
-                response.innerHTML = "le nombre a trouver est plus petit"
-                tryNumber++
-            } else if (randomNumber > userInput ) {
-                response.innerHTML = "le nombre a trouver est plus grand"
-                tryNumber++
-            } else {
-                response.innerHTML = `Félicitations, vous avez trouvé le nombre mystère en ${tryNumber} tentatives !`
-                if(localStorage.length < HIGHSCORE_MAX) {
-                    show()
-                }
-            }
-        } else {
-            response.innerHTML = "Veuillez saisir un nombre entre 1 et 99"
+function scoreBy(id) {
+    let key = `userName${id}` 
+    console.log(localStorage.getItem(key));
+}
+
+function run() {
+    initGame()
+}
+
+function scores() {
+    let key = (Object.keys(localStorage).length) - 1;
+    for (let i = 0; i < key; i++) {
+        console.log(localStorage.getItem(`userName${i}`));
+    }
+}
+
+
         }
     } else {
         response.innerHTML = "Désolé, vous avez fait trop de tentatives ! "
@@ -65,5 +67,6 @@ function scores() {
         let name = localStorage.key(i)
         let score = localStorage[name]
         console.log(`${name} : ${score} tentatives`)
+        
     }
 }
