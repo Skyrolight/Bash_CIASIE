@@ -2,6 +2,8 @@ let randomNumber = 12 //Math.floor(Math.random() * (99 - 1 + 1) + 1)
 let response = document.getElementById("response");
 let tryNumber = 0;
 
+
+
 function game() {
     let userInput = document.getElementById("userNumber").value;
     if (!(userInput > 99 || userInput < 1)) {
@@ -28,14 +30,15 @@ function setHighscore() {
 let tablebody = document.getElementById("tablebody")
 for( let i = 0; i < localStorage.length; i++){
     let name = localStorage.key(i)
-    tablebody.innerHTML += `<tr><td>${name}</td> <td>${localStorage.name}</td></tr>`
+    tablebody.innerHTML += `<tr><td>${name}</td> <td>${localStorage[name]}</td></tr>`
 }
 
+for( let i = 0; i < Object.keys(localStorage).length; i++){
+    let name = localStorage.key(i)
+    tablebody.innerHTML += `<tr><td>${name}</td> <td>${localStorage[name]}</td></tr>`
+}
 
-
-
-
-
+console.log(Object.keys(localStorage).sort());
 
 let divGetName = document.getElementById("userDiv");
 function show() {
