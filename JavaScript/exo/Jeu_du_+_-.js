@@ -1,7 +1,7 @@
 let randomNumber = 12 //Math.floor(Math.random() * (99 - 1 + 1) + 1)
 let response = document.getElementById("response");
 let tryNumber = 0;
-
+const TRYMAX = 5;
 
 
 function game() {
