@@ -18,6 +18,7 @@ function game() {
             show()
         }
     } else {
+
         response.innerHTML = "Veuillez saisir un nombre entre 1 et 99"
     }
 }
