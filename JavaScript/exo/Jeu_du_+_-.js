@@ -1,3 +1,4 @@
+
 let randomNumber = Math.floor(Math.random() * (99 - 1 + 1) + 1)
 let response = document.getElementById("response");
 let tryNumber = 0;
@@ -36,8 +37,10 @@ function game() {
             }
         } else {
             response.innerHTML = "Veuillez saisir un nombre entre 1 et 99"
+
         }
     } else {
+
         response.innerHTML = "Désolé, vous avez fait trop de tentatives ! "
     }
 }
