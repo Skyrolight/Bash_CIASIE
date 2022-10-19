@@ -1,6 +1,6 @@
-let content = document.getElementsByClassName("content");
+let content = document.getElementById("number");
 
 function getUserInput() {
     let userInput = document.getElementById("userNumber").value;
-    console.log(userInput);
+    content.innerHTML = `<p> ${userInput} </p>`;
 }
