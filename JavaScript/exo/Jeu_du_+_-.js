@@ -1,32 +1,47 @@
-const randomNumber = 12;
+let randomNumber = 12 //Math.floor(Math.random() * (99 - 1 + 1) + 1)
+let response = document.getElementById("response");
 let tryNumber = 0;
-let userName = "";
-game()
-
-function getRandomNumber() {
-    return Math.floor(Math.random() * (99 - 1 + 1) + 1)
-}
 
 function game() {
-    tryNumber++;
-    let userValue = prompt("Entrez une valeur entre 1 et 99:");
-
-    if (!(userValue < 1 || userValue > 99)) {
-        if (randomNumber < userValue) {
-            console.log("le nombre à trouver est plus petit")
+    let userInput = document.getElementById("userNumber").value;
+    if (!(userInput > 99 || userInput < 1)) {
+        if (randomNumber < userInput) {
+            response.innerHTML = "le nombre a trouver est plus petit"
+            tryNumber++
+        } else if (randomNumber > userInput ) {
+            response.innerHTML = "le nombre a trouver est plus grand"
+            tryNumber++
         } else {
-            console.log("le nombre à trouver est plus grand")
-        } 
-
-        if (userValue != randomNumber) {
-            game();
-        } else {
-            console.log('Bravo!')
-            console.log(`Vous avez trouvé le nombre en: ${tryNumber} coup\(s)`)
-            userName = prompt("Entrez votre pseudo :");
+            response.innerHTML = `Félicitations, vous avez trouvé le nombre mystère en ${tryNumber} tentatives !`
+            show()
         }
-
     } else {
-        game();
+        response.innerHTML = "Veuillez saisir un nombre entre 1 et 99"
     }
+}
+
+function setHighscore() {
+    let userName = document.getElementById("userName").value;
+    localStorage.setItem(userName, tryNumber);
+}
+
+let tablebody = document.getElementById("tablebody")
+for( let i = 0; i < localStorage.length; i++){
+    let name = localStorage.key(i)
+    tablebody.innerHTML += `<tr><td>${name}</td> <td>${localStorage.name}</td></tr>`
+}
+
+
+
+
+
+
+
+let divGetName = document.getElementById("userDiv");
+function show() {
+    divGetName.style.display = 'block';   
+}
+
+function hide() {
+    divGetName.style.display = 'none';   
 }
