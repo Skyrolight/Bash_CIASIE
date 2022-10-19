@@ -1,6 +1,12 @@
-let content = document.getElementById("number");
+let randomNumber = 12
 
-function getUserInput() {
+function game() {
     let userInput = document.getElementById("userNumber").value;
-    content.innerHTML = `<p> ${userInput} </p>`;
+
+    if (randomNumber < userInput) {
+        console.log("le nombre à trouver est plus petit")
+    } else {
+        console.log("le nombre à trouver est plus grand")
+    } 
+
 }
