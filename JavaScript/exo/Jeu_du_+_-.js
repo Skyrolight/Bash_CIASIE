@@ -1,5 +1,5 @@
 function resetScores () {
-    localStorage.clear();
+    localStorage.clear()
 }
 
 function scoreBy(id) {
