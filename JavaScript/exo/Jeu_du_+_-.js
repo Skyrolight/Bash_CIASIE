@@ -22,7 +22,7 @@ function setDifficulty() {
 function game() {
     let userInput = document.getElementById("userNumber").value;
     if(tryNumber < TRYMAX) {
-        if (!(userInput > 99 || userInput < 1)) {
+        if (!(userInput > '99' || userInput < '1')) {
             if (randomNumber < userInput) {
                 response.innerHTML = "le nombre a trouver est plus petit"
                 tryNumber++
