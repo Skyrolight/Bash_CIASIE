@@ -1,5 +1,5 @@
 function resetScores () {
-    localStorage.clear()
+    localStorage.clear();
 }
 
 function scoreBy(id) {
@@ -30,46 +30,64 @@ function setHistory(key, data) {
     localStorage.setItem(key, JSON.stringify(data));
 }
 
-function game(randomNumber, tryNumber) {
+function game(randomNumber, tryNumber, TRY_MAX, CHAR_MAX, SCORE_MAX) {
     let key = (Object.keys(localStorage).length) - 1;
+    let userName = "";
     const highscore = getLocalStorage('highscore');
     tryNumber++;
-    let userValue = prompt("Entrez une valeur entre 1 et 99:");
-    if (!(userValue < 1 || userValue > 99)) {
-        if (randomNumber < userValue) {
-            console.log("le nombre à trouver est plus petit")
-        } else {
-            console.log("le nombre à trouver est plus grand")
-        } 
 
-        if (userValue != randomNumber) {
-            game(randomNumber, tryNumber);
-        } else {
-            console.log('Bravo!');
-            console.log(`Vous avez trouvé le nombre en: ${tryNumber} coup\(s)`);
+    while (!(TRY_MAX < tryNumber)) {
+        let userValue = prompt("Entrez une valeur entre 1 et 99:");
+        if (!(userValue < 1 || userValue > 99)) {
+            if (randomNumber < userValue) {
+                console.log("le nombre à trouver est plus petit")
+            } else {
+                console.log("le nombre à trouver est plus grand")
+            } 
+    
+            if (userValue != randomNumber) {
+                game(randomNumber, tryNumber, TRY_MAX, CHAR_MAX, SCORE_MAX);
+            } else {
+                console.log('Bravo!');
+                console.log(`Vous avez trouvé le nombre en: ${tryNumber} coup\(s)`);
+                do {
+                    userName = prompt("Entrez votre pseudo :");
+                } while (CHAR_MAX < userName.length);
 
-            let userName = prompt("Entrez votre pseudo :");
-            const data = {
-                userName,
-                tryNumber
-            };
+                const data = {
+                    userName,
+                    tryNumber
+                };
+                
+                if (((Object.keys(localStorage).length) - 1) < SCORE_MAX) {
+                    setHistory(`userName${key}`, data)
+                }
 
-            setHistory(`userName${key}`, data)
-            if (tryNumber < highscore) {
-                localStorage.setItem('highscore', tryNumber);
-                console.log("Vous détenez le recors !");
+                if (tryNumber < highscore) {
+                    localStorage.setItem('highscore', tryNumber);
+                    console.log("Vous détenez le recors !");
+                }
+
+                exit()
             }
+    
+        } else {
+            game(randomNumber, tryNumber, TRY_MAX, CHAR_MAX, SCORE_MAX);
         }
-
-    } else {
-        game(randomNumber, tryNumber);
     }
+
+    console.log("Vous avez atteins la limite !");
+    console.log("partie terminé");
+    exit();
 }
 
 function initGame() {
-    const randomNumber = 12;
+    let randomNumber = 0;
     let tryNumber = 0;
     let highscore = getLocalStorage('highscore');
+    const TRY_MAX = 10;
+    const CHAR_MAX = 20;
+    const SCORE_MAX = 5;
 
     if (highscore === null || highscore == "999" ) {
         localStorage.setItem('highscore', 999);
@@ -78,7 +96,7 @@ function initGame() {
         console.log(`Le high score est de : ${highscore}`);
     }
 
-    game(randomNumber, tryNumber);
+    game(randomNumber, tryNumber, TRY_MAX, CHAR_MAX, SCORE_MAX);
 }
 
 initGame()
