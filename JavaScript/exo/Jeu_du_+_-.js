@@ -96,6 +96,24 @@ function initGame() {
         console.log(`Le high score est de : ${highscore}`);
     }
 
+    let difficulty = prompt("Entrez une difficulté: \n1. Facile\n2. Moyen\n3. Difficulty");
+    
+    switch (difficulty) {
+        case '1':
+            randomNumber = Math.floor(Math.random() * (10 - 1 + 1) + 1)
+            break;
+        case '2':
+            randomNumber = Math.floor(Math.random() * (25 - 1 + 1) + 1)
+            break;
+        case '3':
+            randomNumber = Math.floor(Math.random() * (99 - 1 + 1) + 1)
+            break;
+        default:
+            randomNumber = Math.floor(Math.random() * (99 - 1 + 1) + 1)
+            break;
+    }
+    
+    console.log(randomNumber)
     game(randomNumber, tryNumber, TRY_MAX, CHAR_MAX, SCORE_MAX);
 }
 
