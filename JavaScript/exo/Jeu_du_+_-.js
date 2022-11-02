@@ -5,8 +5,7 @@ let tryNumber = 0;
 const TRYMAX = 5;
 const HIGHSCORE_MAX = 5;
 
-
-function setDifficulty() {
+export function setDifficulty() {
     let difficulty = document.getElementById("userDifficulty").value;
     if (difficulty == "Facile") {
         randomNumber = Math.floor(Math.random() * (10 - 1 + 1) + 1)
